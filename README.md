@@ -26,7 +26,7 @@ avoidance, and precise object manipulation in complex environments.
 | **Core Sensor** | RGB-D Camera | Provides synchronized image and depth data. |
 | **Configuration File** | `model.sdf` / XACRO files | Manual modification required for sensor integration. |
 | **Source Management** | Direct GitHub Cloning | Bypassing standard library installation for full customization. |
-
+| **Output & Control** | Robot Control & Data Visualization | The final integration will allow for real-time control of the robot and visualization of the rich RGB and Depth data streams via a suitable ROS 2 interface (e.g., RViz). |
 ------------------------------------------------------------------------
 
 ## Project Goal
