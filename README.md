@@ -24,7 +24,7 @@ avoidance, and precise object manipulation in complex environments.
 | **Robot OS** | ROS 2 Jazzy Jalisco | Latest LTS distribution for robust control. |
 | **Simulator** | Gazebo Harmonic (Gz-Harmonic) | Optimized for compatibility with ROS 2 Jazzy. |
 | **Core Sensor** | RGB-D Camera | Provides synchronized image and depth data. |
-| **Configuration File** | `model.sdf` / XACRO files | Manual modification required for sensor integration. |
+| **Configuration File** | `model.sdf` | Manual modification required for sensor integration. |
 | **Source Management** | Direct GitHub Cloning | Bypassing standard library installation for full customization. |
 | **Output & Control** | Robot Control & Data Visualization | The final integration will allow for real-time control of the robot and visualization of the rich RGB and Depth data streams via a suitable ROS 2 interface (e.g., RViz). |
 ------------------------------------------------------------------------
