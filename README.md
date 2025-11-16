@@ -20,12 +20,12 @@ avoidance, and precise object manipulation in complex environments.
 
 | Component | Detail | Notes |
 | :--- | :--- | :--- |
-| **Robot Platform** | TurtleBot3 | Source code cloned directly from GitHub. |
-| **Robot OS** | ROS 2 Jazzy Jalisco | Latest LTS distribution for robust control. |
+| **Robot Platform** | TurtleBot3 | Source code cloned directly from GitHub. The robot model used is: Waffle|
+| **Robot OS** | ROS 2 Jazzy | Latest LTS distribution for robust control. |
 | **Simulator** | Gazebo Harmonic (Gz-Harmonic) | Optimized for compatibility with ROS 2 Jazzy. |
 | **Core Sensor** | RGB-D Camera | Provides synchronized image and depth data. |
-| **Configuration File** | `model.sdf` | Manual modification required for sensor integration. |
-| **Source Management** | Direct GitHub Cloning | Bypassing standard library installation for full customization. |
+| **Configuration File** | `model.sdf` | Manual modification of the robot's geometric and sensor description files to incorporate the RGB-D camera link and plugin. |
+| **Source Management** | Direct GitHub Cloning | Ensures full control and customization of the TurtleBot3 simulation packages, bypassing standard library installation. |
 | **Output & Control** | Robot Control & Data Visualization | The final integration will allow for real-time control of the robot and visualization of the rich RGB and Depth data streams via a suitable ROS 2 interface (e.g., RViz). |
 ------------------------------------------------------------------------
 
