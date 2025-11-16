@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "turtlebot3-rgbd"
+version = "0.1.0"
+description = "Utilities to inject an RGB-D camera into TurtleBot3 SDF models"
+authors = [{name = "OpenAI Assistant"}]
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+turtlebot3-rgbd = "turtlebot3_rgbd.cli:main"

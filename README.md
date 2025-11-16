@@ -43,9 +43,31 @@ over the ROS 2 network. This establishes a foundation for advanced:
 
 ------------------------------------------------------------------------
 
-## Source Cloning Instructions
+## Repository Contents
 
-``` bash
+This repository now ships a lightweight Python utility that
+automatically patches the **TurtleBot3 Waffle** `model.sdf` description
+with a simulated RGB-D camera that is compatible with ROS 2 Jazzy and
+Gazebo Harmonic.  Instead of editing XML by hand, the helper script
+creates:
+
+1.  An RGB-D camera link complete with inertia, collision and visual
+    geometry sized like a typical RealSense-class sensor.
+2.  A fixed joint that anchors the sensor on top of the `base_link`
+    chassis.
+3.  A `depth` sensor definition with synchronized RGB, depth image and
+    point cloud topics that can be bridged into ROS 2 using the
+    `libgazebo_ros_depth_camera.so` plugin.
+
+The key module is located at `turtlebot3_rgbd/sdf_patcher.py` and can be
+used either programmatically or via the command line interface exposed
+in `turtlebot3_rgbd/cli.py`.
+
+## How to Use the Patcher
+
+### 1. Prepare a TurtleBot3 Workspace
+
+```bash
 # Navigate to your ROS 2 workspace (e.g., ~/ros2_ws/src)
 cd ~/ros2_ws/src
 
@@ -53,3 +75,41 @@ cd ~/ros2_ws/src
 git clone -b jazzy-devel https://github.com/ROBOTIS-GIT/turtlebot3.git
 git clone -b jazzy-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
 ```
+
+### 2. Run the CLI Tool
+
+With this repository available in your Python path (e.g., via
+`pip install -e .` or by executing within the cloned folder), run:
+
+```bash
+python -m turtlebot3_rgbd.cli \
+  ~/ros2_ws/src/turtlebot3/turtlebot3_description/urdf/turtlebot3_waffle/model.sdf \
+  --namespace /tb3 \
+  --pose 0 0 0.23 0 0 0
+```
+
+-   Use `--dry-run` to check whether the file already contains the
+    sensor without touching the XML.
+-   Supply `--output some/path/model_rgbd.sdf` to keep the original file
+    untouched while generating an augmented version for experiments.
+
+### 3. Launch Gazebo Harmonic
+
+After patching the model you can launch Gazebo Harmonic through the
+standard TurtleBot3 bringup launch files. RViz2 should expose
+`/tb3/image`, `/tb3/image/depth` and `/tb3/points` topics when the robot
+spawns successfully.
+
+## Running Tests
+
+The helper library ships with unit tests that validate the SDF
+transforms and CLI behaviour. Install the optional development
+dependencies and execute:
+
+```bash
+pip install -r requirements-dev.txt  # contains pytest
+pytest
+```
+
+These tests parse minimal SDF models to ensure that the generated sensor
+link, joint, and Gazebo ROS plugin definitions appear exactly once.
