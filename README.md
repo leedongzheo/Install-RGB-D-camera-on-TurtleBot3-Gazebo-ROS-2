@@ -52,4 +52,6 @@ cd ~/ros2_ws/src
 # Clone the necessary TurtleBot3 repositories
 git clone -b jazzy-devel https://github.com/ROBOTIS-GIT/turtlebot3.git
 git clone -b jazzy-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
+https://github.com/ROBOTIS-GIT/DynamixelSDK.git
 ```
