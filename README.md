@@ -16,34 +16,16 @@ avoidance, and precise object manipulation in complex environments.
 
 ### Category Details
 
-  ------------------------------------------------------------------------
-  Category               Detail              Key Action
-  ---------------------- ------------------- -----------------------------
-  **Robot Platform**     TurtleBot3 (A       Enhanced with 3D perception
-                         versatile,          
-                         open-source mobile  
-                         platform)           
+## 🛠️ Technical Stack
 
-  **Simulation           Gazebo Harmonic     Provides realistic sensor
-  Environment**          (Gz-Harmonic)       data and is optimized for ROS
-                                             2 Jazzy
-
-  **Robot Operating      ROS 2 (Jazzy        Utilizes the latest ROS 2
-  System**               Jalisco)            features for robust and
-                                             distributed control
-
-  **Source Management**  Direct Source       Ensures full control and
-                         Cloning (GitHub)    customization of the
-                                             TurtleBot3 simulation
-                                             packages
-
-  **Core Configuration** model.sdf / XACRO / Manual modification to
-                         URDF                incorporate RGB-D camera link
-                                             and plugin
-
-  **Output & Control**   Robot Control &     Real-time RGB + Depth
-                         Data Visualization  visualization in RViz
-  ------------------------------------------------------------------------
+| Component | Detail | Notes |
+| :--- | :--- | :--- |
+| **Robot Platform** | TurtleBot3 | Source code cloned directly from GitHub. |
+| **Robot OS** | ROS 2 Jazzy Jalisco | Latest LTS distribution for robust control. |
+| **Simulator** | Gazebo Harmonic (Gz-Harmonic) | Optimized for compatibility with ROS 2 Jazzy. |
+| **Core Sensor** | RGB-D Camera | Provides synchronized image and depth data. |
+| **Configuration File** | `model.sdf` / XACRO files | Manual modification required for sensor integration. |
+| **Source Management** | Direct GitHub Cloning | Bypassing standard library installation for full customization. |
 
 ------------------------------------------------------------------------
 
