@@ -57,7 +57,7 @@ over the ROS 2 network. This establishes a foundation for advanced:
 3.  Start Gazebo Harmonic together with the Gazebo ↔ ROS 2 bridges:
 
     ```bash
-    ros2 launch turtlebot3_gazebo empty_world.launch.py
+    ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
     ```
 
     The launch file automatically spawns the turtlebot, the RGB camera
